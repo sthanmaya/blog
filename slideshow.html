@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Carousel with FadeIn and FadeOut</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <style>
+    /* Add some basic styling to our carousel */
+    .carousel {
+      margin: 40px auto;
+      width: 70%;
+    
+    }
+    #c2 {
+      height: 400px;
+    }
+    #c1 {
+      height: 1400px;
+      transition: transform 0.5s ease-in-out;
+    }
+    .carousel-item.active {
+      transform: translateX(0);
+    }
+    .carousel-item-next {
+      transform: translateX(100%);
+    }
+    .carousel-item-prev {
+      transform: translateX(-100%);
+    }
+    .carousel-item img {
+  width: 90%;
+  height: 400px;
+  object-fit: cover;
+  align-items: center;
+  padding-left: 130px;
+}
+
+
+body {
+  background-image: url('/static/images/sbg1.jpg');
+  background-size: cover;
+  background-position: center;
+  /* Other styles as needed */
+}
+#h1{
+  color: hotpink;
+  font-style: italic;
+  padding-top: 2px;
+
+}
+#h2
+{
+  color: darksalmon;
+}
+
+.favorite-moments {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 10px;
+            padding: 20px;
+            
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            line-height: 1.6;
+        }
+        .favorite-moments h2 {
+            color: #333;
+            font-size: 24px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .favorite-moments ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .favorite-moments ul li {
+            margin-bottom: 10px;
+        }
+        .favorite-moments ul li:before {
+            content: "•";
+            color: #ff6600;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        button {
+          border-radius: 1rem;
+          text-transform: uppercase;
+          font-weight: bold;
+          letter-spacing: 0.1ch;
+          background: var(--bg);
+          border: 4px solid transparent;
+          box-shadow: 0 1px hsla(0, 22%, 90%, 0.15) inset;
+          cursor: pointer;
+          background:
+            linear-gradient(var(--bg), var(--bg)) padding-box,
+            var(--glow),
+            linear-gradient(rgb(243, 165, 165), rgb(241, 140, 140)) border-box;
+          transition: background-size 0.24s;
+          touch-action: none;
+          position: relative;
+          padding: 1rem 2rem;
+        }
+        
+        button::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          box-shadow: 0 1px hsla(0, 8%, 88%, 0.15) inset;
+          background: var(--bg);
+          z-index: 2;
+        /*   border: 4px solid transparent; */
+          border-radius: 1rem;
+        }
+        
+        button span {
+          background: var(--glow), rgb(254, 157, 157);
+          background-clip: text;
+          color: transparent;
+          height: 100%;
+          width: 100%;
+          z-index: 2;
+          position: relative;
+          inset: 0;
+        }
+        
+        :root:has(button:active) {
+          --size: 300px;
+        }
+        
+        button::after {
+          content: "";
+          position: absolute;
+          inset: -4px;
+          filter: blur(20px);
+          border: 4px solid transparent;
+          background: var(--glow);
+          color: blue;
+          border-radius: 1rem;
+        }
+        .controls {
+          position: fixed;
+          top: 2rem;
+          right: 2rem;
+        }
+        
+
+  </style>
+</head>
+<body >
+  <!-- The carousel -->
+  <div>
+    {% block start %}
+    {% if user.is_authenticated %}
+    <center><h2>WELCOME <span style="color:darkslateblue">{{user.username}}!</span></h2></center>
+    {% else %}
+    <center></center>
+    {% endif %}
+    {% endblock %}
+  </div>
+   <center>
+    <i><h3 id="h1">MY FAVOURITES</h3></i>
+   </center>
+  
+  <div id="carouselExampleFade"  class="carousel slide carousel-fade" data-ride="carousel">
+    <div class="carousel-inner" id="c2">
+      <div class="carousel-item active">
+        <img src="{% static 'images/virat.jpg' %}" alt="First slide">
+        
+      </div>
+      <div class="carousel-item" id="c1">
+        <img src="{% static 'images/sr.jpg' %}" alt="Second slide">
+      </div>
+      <div class="carousel-item" id="c1">
+        <img src="{% static 'images/icecream.jpg' %}" alt="Third slide">
+      </div>
+      <div class="carousel-item" id="c1">
+        <img src="{% static 'images/place1.jpg' %}" alt="Second slide">
+      </div>
+      <div class="carousel-item" id="c1">
+        <img src="{% static 'images/beach.jpg' %}" alt="Second slide">
+      </div>
+      <div class="carousel-item" id="c1">
+        <img src="{% static 'images/DOS.jpg' %}" alt="Second slide">
+      </div>
+      <div class="carousel-item" id="c1">
+        <img src="{% static 'images/wat.jpg' %}" alt="Second slide">
+      </div>
+      <div class="carousel-item" id="c1">
+        <img src="{% static 'images/art.jpg' %}" alt="Second slide">
+      </div>
+    </div>
+    <div id="carouselExampleFade2" class="carousel slide carousel-fade" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <center>
+          <h2>Virat Kohli</h2>
+          <p>Indian Cricketer and Captain</p>
+        </center>
+        </div>
+        <div class="carousel-item">
+          <center>
+          <h2>Sita Ramam</h2>
+          <p>An epic tale of timeless love and destiny</p>
+          </center>
+        </div>
+        <div class="carousel-item">
+          <center>
+          <h2>Ice Cream</h2>
+          <p>Cold and Delicious Treat</p>
+          </center>
+        </div>
+        <div class="carousel-item">
+          <center>
+          <h2>Kerala</h2>
+          <p>God's Own Country</p>
+          </center>
+        </div>
+        <div class="carousel-item">
+          <center>
+          <h2>Beach</h2>
+          <p>Scenic View of a Beautiful Place</p>
+          </center>
+        </div>
+        <div class="carousel-item">
+          <center>
+          <h2>Dosa</h2>
+          <p>Crispy on the outside, soft on the inside</p>
+          </center>
+        </div>
+        <div class="carousel-item">
+          <center>
+          <h2>Watch</h2>
+          <p>A wrist companion that ticks with every moment</p>
+          </center>
+        </div>
+        <div class="carousel-item">
+          <center>
+          <h2>Art</h2>
+          <p>The soulful expression of human creativity</p>
+          </center>
+        </div>
+        
+      </div>
+     </div>
+     <center>
+       <div class="favorite-moments">
+      <h2>My Favorite Moments</h2>
+      <ul>
+          <li>Enjoying ice cream on a sunny day</li>
+          <li>Watching Virat Kohli's amazing cricket performances</li>
+          <li>Exploring the beautiful backwaters of Kerala</li>
+          <li>Savoring a delicious South Indian dosa for breakfast</li>
+          <li>Relaxing at the beach with friends and family</li>
+          <li>Appreciating the beauty and creativity of art</li>
+          <li>Watching the epic movie "Sitaramam"</li>
+          <li>My favorite watch, a symbol of timeless style and cherished moments.</li>
+      </ul>
+  </div>
+</center>
+  <center >
+    <a href="{% url "home" %}"><button id="b1">Next</button></a>
+    <script>
+    const syncPointer = ({ x: pointerX, y: pointerY }) => {
+      const x = pointerX.toFixed(2)
+      const y = pointerY.toFixed(2)
+      const xp = (pointerX / window.innerWidth).toFixed(2)
+      const yp = (pointerY / window.innerHeight).toFixed(2)
+      document.documentElement.style.setProperty('--x', x)
+      document.documentElement.style.setProperty('--xp', xp)
+      document.documentElement.style.setProperty('--y', y)
+      document.documentElement.style.setProperty('--yp', yp)
+    }
+    document.body.addEventListener('pointermove', syncPointer)
+  </script>
+        
+  </center>
+
+ 
+
+   
+    <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  
+
+  <!-- JavaScript files -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script>
+    // Add fade effect to carousel
+    $('.carousel').carousel({
+      interval: 2000,
+      pause: "hover"
+    });
+    $('#carouselExampleFade1').on('slide.bs.carousel', function(e) {
+      var index = $(e.relatedTarget).index();
+      $('#carouselExampleFade2').carousel(index);
+    });
+  </script>
+</body>
+</html>

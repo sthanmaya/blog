@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+    {% load crispy_forms_tags %}
+<html class="home blog no-js" lang="en-US">
+<head>
+    <title>Maya| A cutesy little blog</title>
+
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="{% static 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %}"
+          type="text/css" media="all"/>
+    <link rel="stylesheet" href="{% static 'https://fonts.googleapis.com/css?family=Amatic+SC%3A400%2C700%7CLato%3A400%2C700%2C400italic%2C700italic&amp;ver=4.9.8' %}"
+          type="text/css" media="screen"/>
+    <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="{% static 'print.css' %}" type="text/css" media="print"/>
+    
+    <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+    
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- bootstrap file-->
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <style>
+    #a1{
+     color: rgb(115, 235, 235);
+    }
+    .brush-text {
+        font-family:'Brush Script MT', cursive;
+        font-size: 36px;
+        color: #333;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+        letter-spacing: 1px;
+        transform: rotate(-1deg);
+    }
+ </style>
+</head>
+<body class="home sticky-menu sidebar-off" id="top">
+    <body class="container-fluid">
+        <header class="row">
+          <!-- navbar-->
+          <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:rgb(238, 161, 161)">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" class="styleheader" href="{% url "index" %}"></a>
+              </div>
+              <div class="collapse navbar-collapse" id="mainNavBar" >
+                <ul class="nav navbar-nav navbar-right">
+                    
+                  <li><a href="{% url "contact" %}"><span class="glyphicon glyphicon-phone-alt" id="a1"></span> Contact Me</a></li>
+                  
+                  {% if user.is_authenticated %}
+                  <li><a href="{% url "logout" %}" id="a1"><span class="glyphicon glyphicon-log-out" id="a1"></span>   Logout</a></li>
+                  {% else %}
+                  <li><a href="{% url "register" %}"></a></li>
+                  <li><a href="{% url "login" %}"></a></li>
+                  {% endif %}
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </header>
+        <br/>
+        <br>
+        <br>
+        <br>
+        <div class="row">
+          {% block start %}
+          {% if user.is_authenticated %}
+          <center><h1>welcome back {{user.username}}!</h1></center>
+          {% else %}
+          <center>
+            <div class="brush-text">
+                "Step into a world of insights and inspiration"
+            </div>
+        </center>
+          {% endif %}
+          {% endblock %}
+        </div>
+      <br><br>
+<header class="header">
+
+    <div class="header-wrap">
+
+        <div class="logo plain logo-left">
+            <div class="site-title">
+                <a href="home.html" title="Go to Home">Maya</a>
+            </div>
+        </div><!-- /logo -->
+    </div>
+
+</header>
+
+<div class="hero" style="background-image: url('static/images/bg1.png'); text-align:right;">
+    <div class="hero-inner">
+        <div class="inner">
+            <h1 id="h1"  style="color: rgb(238, 161, 161); font-family:'Pacifico',cursive;"><span class="border border-top border-bottom">Maya</span></h1>
+            <div class="hero-line-one"></div>
+            <div class="hero-line-two"><span class="border border-bottom"><a href="{% static 'https://freehtml5.co' %}" style="color:#f39c9c;font-family: Times New Roman, Times, serif;">It's all about me</a></span></div>
+        </div>
+
+        <a class="more-arrow" href="#content"><i class="fa fa-chevron-down"></i><span>Scroll Down</span></a>
+
+    </div>
+</div>
+<center><a href="{% url "login" %}" id="a1"><h2>TO KNOW MORE ABOUT ME</h2></a></center>
+
+
+<div class="footer-widgets widget-count-4">
+
+    <div class="wrap">
+
+        <div class="mt-about-you-widget">
+            <div class="widget footer">
+
+                <img class="mt-about-avatar" src="static/images/about.jpg" alt="Thanmaya"/>
+
+                <h4>Thanmaya</h4>
+
+                <div class="mt-about-bio">
+                    <p>Hi, my name is Thanmaya and I&#039;m a student . I love beaches,travelling and
+                                doing arts and crafts</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="widget footer"><h4>Recent Posts</h4>
+            <ul>
+                <li>
+                    <a href="#">Place</a>
+                </li>
+                <li>
+                    <a href="#">Movie</a>
+                </li>
+                <li>
+                    <a href="#">Cricketer</a>
+                </li>
+                <li>
+                    <a href="#">Food</a>
+                </li>
+                <li>
+                    <a href="#">Thing</a>
+                </li>
+                <li>
+                    <a href="#">Book</a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="widget footer"><h4>Gallery</h4>
+            <div class="textwidget">
+                <img src="static/images/gallery.jpg" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+<div id="topsearch">
+    <div class="table">
+        <div class="table-cell">
+            <form role="search" method="get" class="searchform" action="index.html">
+                <div>
+                    <input type="text" value="" name="s" class="s" placeholder="Type and hit enter"/>
+                    <input type="submit" class="searchsubmit" value="Search"/>
+                </div>
+            </form>
+        </div>
+    </div>
+    <a href="#topsearch" class="search-trigger"><i class="fa fa-times"></i></a>
+</div>
+<script>var ie9 = false;</script>
+<script src="{% static 'js/global-plugins.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script> 
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
