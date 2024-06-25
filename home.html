@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<html class="home blog no-js" lang="en-US">
+<head>
+    <title>Maya| A cutesy little blog</title>
+
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="{% static 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %}"
+          type="text/css" media="all"/>
+    <link rel="stylesheet" href="{% static 'https://fonts.googleapis.com/css?family=Amatic+SC%3A400%2C700%7CLato%3A400%2C700%2C400italic%2C700italic&amp;ver=4.9.8' %}"
+          type="text/css" media="screen"/>
+    <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="{% static 'print.css' %}" type="text/css" media="print"/>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+
+    <style>
+        #a1{
+            color: rgb(115, 235, 235);
+           }
+    </style>
+</head>
+<body class="home sticky-menu sidebar-off" id="top">
+    
+<br><br><br>
+      </body>
+<header class="header">
+
+    <div class="header-wrap">
+        <nav id="nav" role="navigation" style="padding-top: 5px;">
+            <div class="table">
+                <div class="table-cell">
+                    <ul id="menu-menu-1">
+                        <li class="menu-item">
+                            <a href="index.html"></a></li>
+                            {% if user.is_authenticated %}
+                            <li><a href="{% url "logout" %}" id="a1"><span class="glyphicon glyphicon-log-in"> Logout </span></a></li>
+                            {% else %}
+                            <li><a href="{% url "register" %}"></a></li>
+                            <li><a href="{% url "login" %}"></a></li>
+                            {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <a href="#nav" class="menu-trigger"><i class="fa fa-bars"></i></a>
+
+        <a href="#topsearch" class="search-trigger"><i class="fa fa-search"></i></a>
+
+    </div>
+
+</header>
+
+<div class="hero" style="background-image: url('/static/images/bg1.png'); text-align:right;">
+    <div class="hero-inner">
+        <div class="inner">
+            <h1 id="h1"  style="color: rgb(238, 161, 161); font-family:'Pacifico',cursive;"><span class="border border-top border-bottom">Maya</span></h1>
+            <div class="hero-line-one"></div>
+            <div class="hero-line-two"><span class="border border-bottom"><p style="color:#f39c9c;font-family: Times New Roman, Times, serif;">It's all about me</p></span></div>
+        </div>
+
+    </div>
+
+</div>
+<div class="wrap full-wrap">
+    <div class="main-wrap">
+        <section class="main main-archive">
+            <div class="loop">
+
+                <article class="post format-gallery post_format-post-format-gallery">
+                        <div class="part-gallery">
+                            <div class="flexslider">
+                                <ul class="slides">
+                                    <li><span class="post-image"><img src="{% static 'images/run3.jpg' %}"
+                                                                      alt="Run-3"/></span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </a>
+   
+                    <div class="inner">
+                        <h2 class="entry-title">
+                           <p>My College </p>
+                        </h2>
+                        <ul class="meta top">
+                            <li class="time">
+                                    <time class="post-date updated" datetime="2015-02-01">December 13,2021</time>
+                                </a></li>
+                        </ul>
+                        <div class="post-content">
+                            <p>Sree Vidyanikethan Education Trust (SVET) was established in 1992, it has surpassed many a milestone. As an individual, I have the best memories and biggest learning experiences in life. I believe every individual deserves best knowledge to 
+                                lead a better life and knowledge comes with learning – one that is based on doing things right 
+                                and not merely knowing about how to do them.
+                                At SVEC, our purpose is to transform young aspirers into exceptional professionals, our mission is to enhance the aptitudes of those who walk in to acquire knowledge and our dream is to give every young child access to best education and progression in life. Today, I am so glad and happy to see SVEC positioned as one of the best colleges for engineering in India..</p>
+                    
+                        </div>
+                        <a
+                                        href="https://www.svec.education/"
+                                        class="more-link">Read 
+                                        More</a>
+                        </ul>
+                        </div>
+            </div>
+
+        </section>
+        <center><a href="{% url 'postindex' %}" id="a1"><h4>TO SEE OUR POSTS</h4></a></center>
+        <center><a href="{% url "post" %}" id="a1"><h2>Post your thoughts here and spark conversations.</h2></a></center>
+
+<div class="footer-widgets widget-count-4">
+    <div class="wrap">
+        <div class="mt-about-you-widget">
+            <div class="widget footer">
+                <img class="mt-about-avatar" src="/static/images/about.jpg" alt="Thanmaya"/>
+                <h4>Thanmaya</h4>
+                <div class="mt-about-bio">
+                    <p>Hi, my name is Thanmaya and I&#039;m a student . I love beaches,travelling and
+                                doing arts and crafts</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="widget footer"><h4>Recent Posts</h4>
+            <ul>
+                <li>
+                    <a href="#">Place</a>
+                </li>
+                <li>
+                    <a href="#">Movie</a>
+                </li>
+                <li>
+                    <a href="#">Cricketer</a>
+                </li>
+                <li>
+                    <a href="#">Food</a>
+                </li>
+                <li>
+                    <a href="#">Thing</a>
+                </li>
+                <li>
+                    <a href="#">Book</a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="widget footer"><h4>Gallery</h4>
+            <div class="textwidget">
+                <img src="/static/images/gallery.jpg" alt="">
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div id="topsearch">
+    <div class="table">
+        <div class="table-cell">
+            <form role="search" method="get" class="searchform" action="index.html">
+                <div>
+                    <input type="text" value="" name="s" class="s" placeholder="Type and hit enter"/>
+                    <input type="submit" class="searchsubmit" value="Search"/>
+                </div>
+            </form>
+        </div>
+    </div>
+    <a href="#topsearch" class="search-trigger"><i class="fa fa-times"></i></a>
+</div>
+
+<script>var ie9 = false;</script>
+<!--[if lte IE 9 ]>
+<script> var ie9 = true; </script>
+<![endif]-->
+<script src="{% static 'js/global-plugins.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
+        
+       
+    
+
